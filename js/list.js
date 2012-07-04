@@ -5,13 +5,17 @@ var TaskList = function(){
     return this.entries;
   }
   this.addTask = function(description, date) {
+    console.log(this.task_counter);
     this.entries.push(new Task(description, date, this.task_counter));
     this.task_counter++;
-    console.log(this.task_counter);
   }
   
   this.markComplete = function(index) {
-    this.entries[index - 1].complete();
+    this.entries[index].complete();
+  }
+  
+  this.markIncomplete = function(index) {
+    this.entries[index].setIncomplete();
   }
 
   

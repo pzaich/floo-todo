@@ -6,7 +6,7 @@ var Task = function(description, date, id){
     
   this.createListItem = function () {
     var date_str = this.getDate();
-    var listItem = '<li id= ' + this.task_id + ' > ' + date_str + ' ' + '<span>' + description + '</span>' + '<input class="completion-status" type="checkbox"/></li>';
+    var listItem = '<li id= ' + this.task_id + ' ><input class="completion-status" type="checkbox"/>' + description + ' ' + '<span>' + date_str + '</span>' + '</li>';
     $('.incomplete-list').append(listItem).children(':last').hide().fadeIn(2000);
   }
   

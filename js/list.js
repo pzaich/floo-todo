@@ -5,7 +5,6 @@ var TaskList = function(){
     return this.entries;
   }
   this.addTask = function(description, date) {
-    console.log(this.task_counter);
     this.entries.push(new Task(description, date, this.task_counter));
     this.task_counter++;
   }
@@ -17,9 +16,9 @@ var TaskList = function(){
   this.markIncomplete = function(index) {
     this.entries[index].setIncomplete();
   }
-
   
-  // this.markComplete = function(description, date){
-  //     this.entries
+  // this.append_to = function(object_id, list) {
+  //     $(object_id).append_to(list);
   //   }
+
 }

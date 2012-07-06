@@ -6,7 +6,7 @@ var Task = function(description, date, id){
     
   this.createListItem = function () {
     var date_str = this.getDate();
-    var listItem = '<li id= ' + this.task_id + ' ><input class="completion-status" type="checkbox"/>' + description + ' ' + '<span>' + date_str + '</span>' + '</li>';
+    var listItem = '<li id= ' + this.task_id + ' ><input class="completion-status" type="checkbox"/>' + description + ' ' + '<span class="clearfix">' + date_str + '</span>' + '</li>';
     $('.incomplete-list').append(listItem).children(':last').hide().fadeIn(2000);
   }
   
@@ -28,10 +28,14 @@ var Task = function(description, date, id){
   }
   
   this.setIncomplete = function () {
+    // var element_id = '#' + this.task_id;
+    //     $(element_id).children('.completion-status').attr("checked", "");
     return this.completion = false;
   }
   
   this.complete = function () {
+    var element_id = '#' + this.task_id;
+    //$(element_id).children('.completion-status').attr("checked", "checked");
     return this.completion = true;
   }
   

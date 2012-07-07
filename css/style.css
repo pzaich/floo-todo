@@ -190,7 +190,7 @@ ul{
 	padding-top: 5px;
 	padding-bottom: 5px;
 	margin-bottom: 2px;
-	border: 1px solid #2DB200;
+	border: 1px solid #00D936;
 }
 
 li input[type="checkbox"]{
@@ -240,6 +240,17 @@ label.task-label{
 	top: 10px;
 	left: 5%;
 	position: absolute;
+}
+
+#footer{
+	clear: both;
+	margin-left: 5%;
+	margin-right: 5%;
+	border-top: 1px solid #ccc;
+	margin-top: 20px;
+	font-size: 10px;
+	color: #aaa;
+	text-align: right;
 }
 
 

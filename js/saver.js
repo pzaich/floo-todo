@@ -15,10 +15,10 @@ var SaveToDb = function() {
   this.reloadList = function(rawObject) {
    var array_of_tasks = []
     for (var i = 0; i < rawObject.entries.length; i++){
-      var description = rawObject.entries[i].description
+      var description = rawObject.entries[i].task_description
       var date = rawObject.entries[i].date
       var completion = rawObject.entries[i].completion
-      var new_entry = new Task(description, date);
+      var new_entry = new Task(description, date, i);
       if (completion){
         new_entry.complete();
       }
@@ -26,4 +26,5 @@ var SaveToDb = function() {
     }
    return array_of_tasks
   }
+  
 }

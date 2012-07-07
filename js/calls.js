@@ -2,19 +2,20 @@
 var listSaver = new SaveToDb();
 var myList = new TaskList();
 if (listSaver.not_empty()){
-  listSaver.retrieve();
-  console.log("i have a stored list")
+  myList.entries = listSaver.retrieve();
+  for(i = 0; i < myList.entries.length -1; i++){
+    if (myList.entries[i].completion === true) {
+      var id = "#" + i
+      $(id).appendTo('.complete-list').children('.completion-status').attr("checked", true);
+    }
+  }
 }
+$(window).load(function() {
+  
+});
+
 
 $(document).ready(function () {
-myList.addTask("go home", "07/06/2012");
-myList.addTask("go home", "07/06/2012");
-myList.addTask("go home", "09/23/1986");
-myList.addTask("go home", "09/23/1986");
-myList.addTask("go home", "09/23/1986");
-//var mySave = new SaveToDb();
-
-
 //Initialization
   $(".date").datepicker();
   $(".date").datepicker("setDate", new Date());
@@ -40,7 +41,7 @@ myList.addTask("go home", "09/23/1986");
 
   //Mark an item as complete if it's associated html li item is checked complete
 
-  $('.completion-status').click(function(){
+  $('body').on("click", ".completion-status", function(){
     var index = parseInt($(this).parent().attr('id'));
     if ($(this).attr("checked") === "checked"){
       myList.markComplete(index);

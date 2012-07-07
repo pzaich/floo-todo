@@ -1,13 +1,21 @@
+
+var listSaver = new SaveToDb();
 var myList = new TaskList();
+if (listSaver.not_empty()){
+  listSaver.retrieve();
+  console.log("i have a stored list")
+}
+
 $(document).ready(function () {
-  
-  myList.addTask("go home", "09/23/1986");
-  myList.addTask("go home", "09/23/1986");
-  myList.addTask("go home", "09/23/1986");
-  myList.addTask("go home", "09/23/1986");
-  myList.addTask("go home", "09/23/1986");
-  
-  //Initialization
+myList.addTask("go home", "07/06/2012");
+myList.addTask("go home", "07/06/2012");
+myList.addTask("go home", "09/23/1986");
+myList.addTask("go home", "09/23/1986");
+myList.addTask("go home", "09/23/1986");
+//var mySave = new SaveToDb();
+
+
+//Initialization
   $(".date").datepicker();
   $(".date").datepicker("setDate", new Date());
   $('#ui-datepicker-div').hide();
@@ -34,12 +42,12 @@ $(document).ready(function () {
 
   $('.completion-status').click(function(){
     var index = parseInt($(this).parent().attr('id'));
-    console.log(index);
     if ($(this).attr("checked") === "checked"){
       myList.markComplete(index);
       $(this).parent().appendTo('.complete-list').hide().fadeIn(500);
     } else {
       myList.markIncomplete(index);
+      $(this).parent().appendTo('.incomplete-list').hide().fadeIn(500);
     }
   });
   
@@ -67,4 +75,6 @@ $(document).ready(function () {
     }
     });
   });
+  
+  
 });

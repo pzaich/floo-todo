@@ -1,7 +1,8 @@
 var SaveToDb = function() {
   return {
     save: function () {
-      $.totalStorage("savedList", myList);
+      $.totalStorage("savedList", myList.myentries());
+      console.log($.totalStorage('savedlist'))
     },
     not_empty: function () {
       return $.totalStorage("savedlist");
@@ -10,7 +11,7 @@ var SaveToDb = function() {
       var rawList = $.totalStorage("savedlist");
       return this.reloadList();
     },
-    reloadList: function () {
+    reloadList: function (rawObject) {
       var array_of_tasks = []
         for (var i = 0; i < rawObject.entries.length; i++){
           var description = rawObject.entries[i].description;

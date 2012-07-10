@@ -1,23 +1,23 @@
-var TaskList = function(){
-  this.myentries = [];
-  this.task_counter = 0;
-  this.return_entries = function () {
-    return this.entries;
+var TaskList = function (){
+  var entries = [];
+  var task_counter = 0;
+  return{
+    myentries: function () {
+      return entries;
+    },
+    addTask: function (description, date) {
+      entries.push(new Task(description, date, task_counter));
+      entries[entries.length -1].createListItem();
+      task_counter++;
+      listSaver.save();
+    },
+    markComplete: function (index) {
+      entries[index].setComplete();
+      listSaver.save();
+    },
+    markIncomplete: function (index) {
+      entries[index].setIncomplete();
+      listSaver.save();
+    }
   }
-  this.addTask = function(description, date) {
-    this.entries.push(new Task(description, date, this.task_counter));
-    this.task_counter++;
-    listSaver.save();
-  }
-  
-  this.markComplete = function(index) {
-    this.entries[index].complete();
-    listSaver.save();
-  }
-  
-  this.markIncomplete = function(index) {
-    this.entries[index].setIncomplete();
-    listSaver.save();
-  }
-  
 }

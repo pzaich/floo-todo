@@ -23,10 +23,8 @@ $(document).ready(function () {
   $('input.task, input.date').focus(function (){ $(this).addClass('active');});
   $('input.task, input.date').blur(function (){ $(this).removeClass('active');});
   
-  //Load existing objects into myList
-  
-  
-  //Script for the add task button and input
+
+  //add task button and input
   
   $('.entry-form button').click(function(){
       if ($('.entry-form .task').val() !== '') {
@@ -58,6 +56,7 @@ $(document).ready(function () {
     remove: function(event, ui) {
       var index = parseInt(ui.item.attr('id'));
       myList.markComplete(index);
+      
       $(ui.item).children('.completion-status').attr("checked", true);
     },
     activate: function (event, ui) {
@@ -72,6 +71,7 @@ $(document).ready(function () {
     remove: function(event, ui) {
       var index = parseInt(ui.item.attr('id'));
       $(ui.item).children('.completion-status').attr("checked", false);
+     
       myList.markIncomplete(index);
     }
     });

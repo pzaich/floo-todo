@@ -1,8 +1,9 @@
 var SaveToDb = function() {
   return {
     save: function () {
-      $.totalStorage("savedList", myList.myentries());
-      console.log($.totalStorage('savedlist'))
+      console.log(myList);
+      $.totalStorage("savedList", myList.myentries()[0]);
+      console.log($.totalStorage("savedlist"));
     },
     not_empty: function () {
       return $.totalStorage("savedlist");

@@ -1,4 +1,3 @@
-
 var listSaver = new SaveToDb();
 var myList = new TaskList();
 if (listSaver.not_empty()){
@@ -7,11 +6,11 @@ if (listSaver.not_empty()){
 }
 
 $(document).ready(function () {
-myList.addTask("go home", "07/06/2012");
-myList.addTask("go home", "07/06/2012");
-myList.addTask("go home", "09/23/1986");
-myList.addTask("go home", "09/23/1986");
-myList.addTask("go home", "09/23/1986");
+// myList.addTask("go home", "07/06/2012");
+// myList.addTask("go home", "07/06/2012");
+// myList.addTask("go home", "09/23/1986");
+// myList.addTask("go home", "09/23/1986");
+// myList.addTask("go home", "09/23/1986");
 //var mySave = new SaveToDb();
 
 

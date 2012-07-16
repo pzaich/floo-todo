@@ -26,20 +26,20 @@ $(document).ready(function () {
   
   //Script for the add task button and input
   
-  $('body').on("click", ".completion-status", function(){
-    var index = parseInt($(this).parent().attr('id'));
-    if ($(this).attr("checked") === "checked"){
-      myList.markComplete(index);
-      $(this).parent().appendTo('.complete-list').hide().fadeIn(500);
-    } else {
-      myList.markIncomplete(index);
-      $(this).parent().appendTo('.incomplete-list').hide().fadeIn(500);
-    }
+  $('.entry-form button').click(function(){
+      if ($('.entry-form .task').val() !== '') {
+        var description = $('.entry-form .task').val();
+        var date = $('.entry-form .date').val();
+        myList.addTask(description, date);
+        $('.entry-form .task, .entry-form .date').val('');
+        $(".date").datepicker("setDate", new Date());
+        $('#ui-datepicker-div').hide();
+      }
   });
 
   //Mark an item as complete if it's associated html li item is checked complete
 
-  $('.completion-status').click(function(){
+ $('body').on("click", ".completion-status", function(){
     var index = parseInt($(this).parent().attr('id'));
     if ($(this).attr("checked") === "checked"){
       myList.markComplete(index);
@@ -49,6 +49,7 @@ $(document).ready(function () {
       $(this).parent().appendTo('.incomplete-list').hide().fadeIn(500);
     }
   });
+
   
 //Drag a list item over to completed tasks to complete it
   $(function (){

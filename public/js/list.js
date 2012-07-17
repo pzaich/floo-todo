@@ -7,8 +7,7 @@ var taskList = {
   }),
   
   addTask: function(description, date) {
-    var newTask = new Task(description, date, this.task_counter, false);
-    this.entries.push(newTask);
+    this.entries.push(new Task(description, date, this.task_counter, false));
     this.task_counter++;
     listSaver.save();
   },
